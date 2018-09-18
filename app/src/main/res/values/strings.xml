@@ -6,4 +6,6 @@
     <string name="radius">Radio</string>
 
     <string name="calculate">Calcular</string>
+
+    <string name="base_url">https://maps.googleapis.com/maps/api/</string>
 </resources>
