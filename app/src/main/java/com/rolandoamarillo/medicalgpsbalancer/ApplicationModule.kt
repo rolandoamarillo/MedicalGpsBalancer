@@ -2,6 +2,8 @@ package com.rolandoamarillo.medicalgpsbalancer
 
 import android.content.Context
 import com.rolandoamarillo.medicalgpsbalancer.api.PlacesApi
+import com.rolandoamarillo.medicalgpsbalancer.repository.PlacesDataSource
+import com.rolandoamarillo.medicalgpsbalancer.repository.PlacesRemoteRepository
 import dagger.Module
 import dagger.Provides
 import io.reactivex.annotations.NonNull
@@ -37,4 +39,10 @@ class ApplicationModule(private val context: Context) {
         return retrofit.create(PlacesApi::class.java)
     }
 
+    @Singleton
+    @Provides
+    fun providePlacesDataSource(context: Context, placesApi: PlacesApi): PlacesDataSource {
+        val key = context.getString(R.string.google_api_key)
+        return PlacesRemoteRepository(placesApi, key)
+    }
 }
