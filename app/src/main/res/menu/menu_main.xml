@@ -1,2 +1,2 @@
 <menu xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.rolandoamarillo.medicalgpsbalancer.activities.MainActivity" />
+    tools:context="com.rolandoamarillo.medicalgpsbalancer.activities.main.MainActivity" />
