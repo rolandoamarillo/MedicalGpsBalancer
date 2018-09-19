@@ -8,4 +8,8 @@
     <string name="calculate">Calcular</string>
 
     <string name="base_url">https://maps.googleapis.com/maps/api/</string>
+
+    <string name="empty_place">Selecciona un punto en el mapa</string>
+
+    <string name="empty_radius">Ingresa el valor del radio</string>
 </resources>

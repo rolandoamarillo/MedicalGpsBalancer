@@ -1,16 +1,19 @@
-package com.rolandoamarillo.medicalgpsbalancer.fragments
+package com.rolandoamarillo.medicalgpsbalancer.fragments.main
 
 import android.app.Activity
 import android.content.Intent
 import android.support.v4.app.Fragment
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.rolandoamarillo.medicalgpsbalancer.R
 import kotlinx.android.synthetic.main.fragment_main.*
 import com.google.android.gms.location.places.ui.PlacePicker
 import com.google.android.gms.location.places.Place
+import com.rolandoamarillo.medicalgpsbalancer.activities.calculation.CalculationActivity
 
 
 /**
@@ -50,7 +53,17 @@ class MainFragment : Fragment(), View.OnClickListener {
                 startActivityForResult(builder.build(activity), PLACE_PICKER_REQUEST)
             }
             R.id.calculateButton -> {
-
+                place?.let {
+                    val inputText = radiusEditText.text.toString()
+                    if (!TextUtils.isEmpty(inputText)) {
+                        val radius = inputText.toDouble()
+                        startActivity(CalculationActivity.newIntent(context, it.latLng.latitude, it.latLng.longitude, radius))
+                    } else {
+                        Toast.makeText(context, R.string.empty_radius, Toast.LENGTH_LONG).show()
+                    }
+                } ?: run {
+                    Toast.makeText(context, R.string.empty_place, Toast.LENGTH_LONG).show()
+                }
             }
         }
     }

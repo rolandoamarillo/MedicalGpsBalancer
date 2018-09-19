@@ -2,7 +2,7 @@ package com.rolandoamarillo.medicalgpsbalancer.activities.main
 
 import io.reactivex.disposables.CompositeDisposable
 
-class MainPresenter() : MainContract.MainPresenter {
+class MainPresenter : MainContract.MainPresenter {
 
     private var compositeDisposable: CompositeDisposable? = null
 
