@@ -14,6 +14,7 @@ import kotlinx.android.synthetic.main.fragment_main.*
 import com.google.android.gms.location.places.ui.PlacePicker
 import com.google.android.gms.location.places.Place
 import com.rolandoamarillo.medicalgpsbalancer.activities.calculation.CalculationActivity
+import com.rolandoamarillo.medicalgpsbalancer.model.CalculationParam
 
 
 /**
@@ -57,7 +58,8 @@ class MainFragment : Fragment(), View.OnClickListener {
                     val inputText = radiusEditText.text.toString()
                     if (!TextUtils.isEmpty(inputText)) {
                         val radius = inputText.toDouble()
-                        startActivity(CalculationActivity.newIntent(context, it.latLng.latitude, it.latLng.longitude, radius))
+                        val calculationParam = CalculationParam(it.latLng.latitude, it.latLng.longitude, radius)
+                        startActivity(CalculationActivity.newIntent(context, calculationParam))
                     } else {
                         Toast.makeText(context, R.string.empty_radius, Toast.LENGTH_LONG).show()
                     }

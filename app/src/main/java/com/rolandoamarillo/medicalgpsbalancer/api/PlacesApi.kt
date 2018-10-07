@@ -10,8 +10,11 @@ interface PlacesApi {
 
     //https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=medic&inputtype=textquery&locationbias=circle:2000@47.6918452,-122.2226413&key=AIzaSyAwI9uyvL6ErLsU9pbpHSloZU2kMQSuFqk
 
-    @GET("place/findplacefromtext/{format}")
-    fun getPlacesByRadiusOnPoint(@Path("format") format: String, @Query("input") input: String, @Query("inputtype") inputType: String,
-                                 @Query("locationbias") locationbias: String, @Query("key") key: String): Observable<PlacesResponse>
+    @GET("place/textsearch/{format}")
+    fun getPlacesByRadiusOnPoint(@Path("format") format: String,
+                                 @Query("query") query: String,
+                                 @Query("location") location: String,
+                                 @Query("radius") radius: Double,
+                                 @Query("key") key: String): Observable<PlacesResponse>
 
 }

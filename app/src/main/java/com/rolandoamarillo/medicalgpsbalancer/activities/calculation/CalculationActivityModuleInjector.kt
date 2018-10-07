@@ -14,6 +14,6 @@ abstract class CalculationActivityModuleInjector {
     @Binds
     @IntoMap
     @ActivityKey(CalculationActivity::class)
-    internal abstract fun bindMainActivityInjectorFactory(builder: CalculationActivitySubcomponent.Builder): AndroidInjector.Factory<out Activity>
+    internal abstract fun bindCalculationActivityInjectorFactory(builder: CalculationActivitySubcomponent.Builder): AndroidInjector.Factory<out Activity>
 
 }

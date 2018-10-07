@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import com.rolandoamarillo.medicalgpsbalancer.R
+import dagger.android.AndroidInjection
 import dagger.android.DispatchingAndroidInjector
 
 import kotlinx.android.synthetic.main.activity_main.*
@@ -15,9 +16,10 @@ class MainActivity : AppCompatActivity() {
     lateinit var fragmentInjector: DispatchingAndroidInjector<Fragment>
 
     @Inject
-    lateinit var presenter: MainPresenter
+    lateinit var presenter: MainContract.MainPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)

@@ -5,9 +5,7 @@ import com.rolandoamarillo.medicalgpsbalancer.BaseView
 
 interface MainContract {
 
-    interface MainView : BaseView<MainPresenter> {
-    }
+    interface MainView : BaseView<MainPresenter>
 
-    interface MainPresenter : BasePresenter<MainView> {
-    }
+    interface MainPresenter : BasePresenter<MainView>
 }
